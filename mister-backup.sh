@@ -52,12 +52,12 @@ wget ${NODEBUG} --no-cache "${REPOSITORY_URL}${REPO_BRANCH}/mister-backup.sh" -O
 check4error "${?}"
 cmp -s /tmp/mister-backup.sh /media/fat/Scripts/mister-backup.sh
 if [ "${?}" -gt "0" ] && [ -s /tmp/mister-backup.sh ]; then
-    echo -e "${fyellow}Downloading Updater-Update ${fmagenta}${PICNAME}${freset}"
+    echo -e "${fyellow}Script Updated ${fmagenta}${PICNAME}${freset}"
     mv -f /tmp/mister-backup.sh /media/fat/Scripts/mister-backup.sh
     exec /media/fat/Scripts/mister-backup.sh
     exit 255
 else
-    rm /tmp/backup-sdcard.sh
+    rm /tmp/mister-backup.sh
 fi
 
 # Create User INI file if neccessary
