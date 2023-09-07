@@ -24,7 +24,6 @@ fyellow="\e[1;33m"
 
 REPOSITORY_URL="https://raw.githubusercontent.com/kconger/MiSTer_Backup/"
 REPO_BRANCH="master"
-BACKUP_DESTINATION="/media/usb0/backup/"
 
 NODEBUG="-q -o /dev/null"
 
@@ -48,7 +47,9 @@ check4error() {
   ! [ "${1}" = "0" ] && exit "${1}"
 }
 
-# Update the updater if neccessary
+. /media/fat/Scripts/mister-backup.ini
+
+# Update the script if neccessary
 wget ${NODEBUG} --no-cache "${REPOSITORY_URL}${REPO_BRANCH}/mister-backup.sh" -O /tmp/mister-backup.sh
 check4error "${?}"
 cmp -s /tmp/mister-backup.sh /media/fat/Scripts/mister-backup.sh
@@ -61,9 +62,16 @@ else
     rm /tmp/mister-backup.sh
 fi
 
-# Create User INI file if neccessary
-! [ -e /media/fat/Scripts/mister-backup.ini ] && touch /media/fat/Scripts/mister-backup.ini
-. /media/fat/Scripts/mister-backup.ini
+# Check and update INI file if neccessary
+if ! [ -e /media/fat/Scripts/mister-backup.ini]; then
+	wget ${NODEBUG} --no-cache "${REPOSITORY_URL}${REPO_BRANCH}/mister-backup.ini" -O /tmp/mister-backup.ini
+	check4error "${?}"
+	echo -e "${fyellow}Missing mister-backup.ini installed${fmagenta}${PICNAME}${freset}"
+	mv /tmp/mister-backup.ini /media/fat/Scripts/mister-backup.ini
+	. /media/fat/Scripts/mister-backup.ini
+else
+	. /media/fat/Scripts/mister-backup.ini
+fi
 
 rsync -av --delete --progress /media/fat $BACKUP_DESTINATION
 
