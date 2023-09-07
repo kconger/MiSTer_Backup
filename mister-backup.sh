@@ -73,6 +73,12 @@ else
 	. /media/fat/Scripts/mister-backup.ini
 fi
 
-rsync -av --delete --progress /media/fat $BACKUP_DESTINATION
+if [ -z "$BACKUP_DESTINATION" ]; then 
+	rsync -av --delete --progress /media/fat $BACKUP_DESTINATION
+else
+	echo -e "${fred}BACKUP_DESTINATION not set in mister-backup.ini${freset}"
+fi
+
+echo -e "${fgreen}MiSTer SD backed up to: ${BACKUP_DESTINATION}${freset}";
 
 exit 0
