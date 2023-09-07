@@ -77,7 +77,7 @@ if [ -z "$BACKUP_DESTINATION" ]; then
 else
 	read -p "Backup MiSTer to: ${BACKUP_DESTINATION}? [y/N] " answer
 	if [[ $answer =~ ^[Yy]$ ]]; then
-		rsync -av --delete --progress /media/fat $BACKUP_DESTINATION
+		rsync -avh --delete --progress /media/fat $BACKUP_DESTINATION
 		echo -e "${fgreen}MiSTer SD backed up to: ${BACKUP_DESTINATION}${freset}";
 	else
 	  	echo -e "${fred}Backup Canceled${freset}"

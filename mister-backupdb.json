@@ -6,8 +6,8 @@
     "default_options": {},
     "files": {
 	"Scripts/mister-backup.sh": {
-	    "hash": "c9e5a6d84a30f2f6811b2ac7d50c9eb7",
-	    "size": 3297,
+	    "hash": "503c6e9b3ff4e7b8dca232f3ec775888",
+	    "size": 3298,
 	    "url": "https://raw.githubusercontent.com/kconger/MiSTer_Backup/master/mister-backup.sh"
 	},
 	"Scripts/mister-restore.sh": {
@@ -25,6 +25,6 @@
     "folders": {
 	"Scripts": {}
     },
-    "timestamp": 1694126876,
+    "timestamp": 1694127375,
     "zips": {}
 }
