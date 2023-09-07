@@ -62,7 +62,7 @@ else
     rm /tmp/mister-backup.sh
 fi
 
-# Check and update INI file if neccessary
+# Check for INI file download if neccessary
 if [ -e /media/fat/Scripts/mister-backup.ini ]; then
 	. /media/fat/Scripts/mister-backup.ini
 else
@@ -73,12 +73,12 @@ else
 	. /media/fat/Scripts/mister-backup.ini
 fi
 
+# Run backup
 if [ -z "$BACKUP_DESTINATION" ]; then 
 	rsync -av --delete --progress /media/fat $BACKUP_DESTINATION
+	echo -e "${fgreen}MiSTer SD backed up to: ${BACKUP_DESTINATION}${freset}";
 else
 	echo -e "${fred}BACKUP_DESTINATION not set in mister-backup.ini${freset}"
 fi
-
-echo -e "${fgreen}MiSTer SD backed up to: ${BACKUP_DESTINATION}${freset}";
 
 exit 0
