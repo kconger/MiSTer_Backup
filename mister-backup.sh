@@ -63,7 +63,7 @@ else
 fi
 
 # Check and update INI file if neccessary
-if [ -e /media/fat/Scripts/mister-backup.ini]; then
+if [ -e /media/fat/Scripts/mister-backup.ini ]; then
 	. /media/fat/Scripts/mister-backup.ini
 else
 	wget ${NODEBUG} --no-cache "${REPOSITORY_URL}${REPO_BRANCH}/mister-backup.ini" -O /tmp/mister-backup.ini
