@@ -63,13 +63,13 @@ else
 fi
 
 # Check and update INI file if neccessary
-if ! [ -e /media/fat/Scripts/mister-backup.ini]; then
+if [ -e /media/fat/Scripts/mister-backup.ini]; then
+	. /media/fat/Scripts/mister-backup.ini
+else
 	wget ${NODEBUG} --no-cache "${REPOSITORY_URL}${REPO_BRANCH}/mister-backup.ini" -O /tmp/mister-backup.ini
 	check4error "${?}"
 	echo -e "${fyellow}Missing mister-backup.ini installed${fmagenta}${PICNAME}${freset}"
 	mv /tmp/mister-backup.ini /media/fat/Scripts/mister-backup.ini
-	. /media/fat/Scripts/mister-backup.ini
-else
 	. /media/fat/Scripts/mister-backup.ini
 fi
 
