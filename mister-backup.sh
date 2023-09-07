@@ -28,9 +28,9 @@ BACKUP_DESTINATION="/media/usb0/backup/"
 
 NODEBUG="-q -o /dev/null"
 
-echo -e "\n +---------------------+";
+echo -e "\n +----------------------+";
 echo -e " | ${fyellow}MiSTer Backup Script${freset} |";
-echo -e " +---------------------+\n";
+echo -e " +----------------------+\n";
 
 check4error() {
   case "${1}" in
@@ -65,6 +65,6 @@ fi
 ! [ -e /media/fat/Scripts/mister-backup.ini ] && touch /media/fat/Scripts/mister-backup.ini
 . /media/fat/Scripts/mister-backup.ini
 
-rsync -av --progress /media/fat $BACKUP_DESTINATION
+rsync -av --delete --progress /media/fat $BACKUP_DESTINATION
 
 exit 0
