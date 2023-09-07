@@ -27,9 +27,7 @@ REPO_BRANCH="master"
 
 NODEBUG="-q -o /dev/null"
 
-echo -e "\n +----------------------+";
-echo -e " | ${fyellow}MiSTer Backup Script${freset} |";
-echo -e " +----------------------+\n";
+echo -e "${fyellow}MiSTer Backup Script${freset}";
 
 check4error() {
   case "${1}" in
@@ -77,8 +75,13 @@ fi
 if [ -z "$BACKUP_DESTINATION" ]; then 
 	echo -e "${fred}BACKUP_DESTINATION not set in mister-backup.ini${freset}"
 else
-	rsync -av --delete --progress /media/fat $BACKUP_DESTINATION
-	echo -e "${fgreen}MiSTer SD backed up to: ${BACKUP_DESTINATION}${freset}";
+	read -p "Backup MiSTer to: ${BACKUP_DESTINATION}? [y/N] " answer
+	if [[ $answer =~ ^[Yy]$ ]]; then
+		rsync -av --delete --progress /media/fat $BACKUP_DESTINATION
+		echo -e "${fgreen}MiSTer SD backed up to: ${BACKUP_DESTINATION}${freset}";
+	else
+	  	echo -e "${fred}Backup Canceled${freset}"
+	fi
 fi
 
 exit 0
