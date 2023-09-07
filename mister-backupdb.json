@@ -6,13 +6,13 @@
     "default_options": {},
     "files": {
 	"Scripts/mister-backup.sh": {
-	    "hash": "cf32482d5166c24260289d29ae7cbc6d",
-	    "size": 3007,
+	    "hash": "58ff5e6f42f87f0606c742f23f9924be",
+	    "size": 3222,
 	    "url": "https://raw.githubusercontent.com/kconger/MiSTer_Backup/master/mister-backup.sh"
 	},
 	"Scripts/mister-backup.ini": {
-	    "hash": "808138802894b7f1b9bedc152b2d3d09",
-	    "size": 273,
+	    "hash": "efe11d36f75eb6ad2651924f3dc6d832",
+	    "size": 263,
 	    "url": "https://raw.githubusercontent.com/kconger/MiSTer_Backup/master/mister-backup.ini",
 		"overwrite": false
 	}
@@ -20,6 +20,6 @@
     "folders": {
 	"Scripts": {}
     },
-    "timestamp": 1694053299,
+    "timestamp": 1694055894,
     "zips": {}
 }
