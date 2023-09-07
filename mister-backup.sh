@@ -13,7 +13,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 # You can download the latest version of this script from:
-# https://github.com/kconger/MiSTer_SD-Backup
+# https://github.com/kconger/MiSTer_Backup
 
 
 freset="\e[0m\033[0m"
@@ -24,12 +24,13 @@ fyellow="\e[1;33m"
 
 REPOSITORY_URL="https://raw.githubusercontent.com/kconger/MiSTer_Backup/"
 REPO_BRANCH="master"
+BACKUP_DESTINATION="/media/usb0/backup/"
 
 NODEBUG="-q -o /dev/null"
 
-echo -e "\n +---------------+";
-echo -e " | ${fyellow}web2${fred}r${fgreen}g${fblue}b${fyellow}matrix${freset} |";
-echo -e " +---------------+\n";
+echo -e "\n +---------------------+";
+echo -e " | ${fyellow}MiSTer Backup Script${freset} |";
+echo -e " +---------------------+\n";
 
 check4error() {
   case "${1}" in
