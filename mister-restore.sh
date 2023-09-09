@@ -72,16 +72,15 @@ fi
 
 # Run restore
 if [ -z "$BACKUP_DESTINATION" ]; then 
+	echo -e "${fred}BACKUP_DESTINATION not set in mister-backup.ini${freset}"
+else
 	read -p "Restore MiSTer from: ${BACKUP_DESTINATION}? [y/N] " answer
 	if [[ $answer =~ ^[Yy]$ ]]; then
 		rsync -avh --delete --progress "${BACKUP_DESTINATION}/fat/" /media/fat/
+		echo -e "${fgreen}MiSTer SD restored from: ${BACKUP_DESTINATION}${freset}";
 	else
 		echo -e "${fred}Restore Canceled${freset}"
 	fi
-else
-	echo -e "${fred}BACKUP_DESTINATION not set in mister-backup.ini${freset}"
 fi
-
-echo -e "${fgreen}MiSTer SD restored from: ${BACKUP_DESTINATION}${freset}";
 
 exit 0
