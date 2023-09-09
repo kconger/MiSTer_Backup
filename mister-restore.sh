@@ -29,9 +29,9 @@ echo -e "${fyellow}MiSTer Backup Restore Script${freset}";
 if [ -z "$BACKUP_DESTINATION" ]; then 
 	read -p "Restore MiSTer from: ${BACKUP_DESTINATION}? [y/N] " answer
 	if [[ $answer =~ ^[Yy]$ ]]; then
-	  rsync -avh --delete --progress "${BACKUP_DESTINATION}/fat/" /media/fat/
+		rsync -avh --delete --progress "${BACKUP_DESTINATION}/fat/" /media/fat/
 	else
-	  echo -e "${fred}Restore Canceled${freset}"
+		echo -e "${fred}Restore Canceled${freset}"
 	fi
 else
 	echo -e "${fred}BACKUP_DESTINATION not set in mister-backup.ini${freset}"

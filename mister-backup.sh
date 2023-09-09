@@ -66,9 +66,10 @@ if [ -e /media/fat/Scripts/mister-backup.ini ]; then
 else
 	wget ${NODEBUG} --no-cache "${REPOSITORY_URL}${REPO_BRANCH}/mister-backup.ini" -O /tmp/mister-backup.ini
 	check4error "${?}"
-	echo -e "${fyellow}Missing mister-backup.ini installed${fmagenta}${PICNAME}${freset}"
 	mv /tmp/mister-backup.ini /media/fat/Scripts/mister-backup.ini
 	. /media/fat/Scripts/mister-backup.ini
+	echo -e "${fyellow}Missing mister-backup.ini installed with default backup location of: ${BACKUP_DESTINATION}${fmagenta}${PICNAME}${freset}"
+	exit 0
 fi
 
 # Run backup
