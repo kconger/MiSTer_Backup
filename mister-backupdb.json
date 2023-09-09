@@ -11,14 +11,14 @@
 	    "url": "https://raw.githubusercontent.com/kconger/MiSTer_Backup/master/mister-backup.sh"
 	},
 	"Scripts/mister-restore.sh": {
-	    "hash": "951a46e69a7ce0f2de6f299a26fb6553",
-	    "size": 3228,
+	    "hash": "07ee40fc07c37251a349308fa182d6b1",
+	    "size": 3351,
 	    "url": "https://raw.githubusercontent.com/kconger/MiSTer_Backup/master/mister-restore.sh"
 	}
     },
     "folders": {
 	"Scripts": {}
     },
-    "timestamp": 1694229416,
+    "timestamp": 1694229706,
     "zips": {}
 }

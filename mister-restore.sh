@@ -22,6 +22,11 @@ fgreen="\e[1;32m"
 fred="\e[1;31m"
 fyellow="\e[1;33m"
 
+REPOSITORY_URL="https://raw.githubusercontent.com/kconger/MiSTer_Backup/"
+REPO_BRANCH="master"
+
+NODEBUG="-q -o /dev/null"
+
 echo -e "${fyellow}MiSTer Backup Restore Script${freset}";
 
 check4error() {
