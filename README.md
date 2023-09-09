@@ -8,7 +8,12 @@ Add the following entry to your 'downloader.ini' then run 'update_all.sh'
 db_url = https://raw.githubusercontent.com/kconger/MiSTer_Backup/master/mister-backupdb.json
 ```
 
-Change your backup destination in 'mister-backup.ini', it currently defaults to '/media/usb0/backup/'
+Run mister-restore.sh to create the initial INI file.
+```
+mister-restore.sh
+```
+
+Change your backup destination in 'Scripts/mister-backup.ini', it currently defaults to '/media/usb0/backup/'
 ```
 BACKUP_DESTINATION="/media/usb0/backup/"
 ```
