@@ -24,8 +24,48 @@ fyellow="\e[1;33m"
 
 echo -e "${fyellow}MiSTer Backup Restore Script${freset}";
 
-. /media/fat/Scripts/mister-backup.ini
+check4error() {
+  case "${1}" in
+    0) ;;
+    1) echo -e "${fyellow}wget: ${fred}Generic error code.${freset}" ;;
+    2) echo -e "${fyellow}wget: ${fred}Parse error---for instance, when parsing command-line options, the .wgetrc or .netrc..." ;;
+    3) echo -e "${fyellow}wget: ${fred}File I/O error.${freset}" ;;
+    4) echo -e "${fyellow}wget: ${fred}Network failure.${freset}" ;;
+    5) echo -e "${fyellow}wget: ${fred}SSL verification failure.${freset}" ;;
+    6) echo -e "${fyellow}wget: ${fred}Username/password authentication failure.${freset}" ;;
+    7) echo -e "${fyellow}wget: ${fred}Protocol errors.${freset}" ;;
+    8) echo -e "${fyellow}wget: ${fred}Server issued an error response.${freset}" ;;
+    *) echo -e "${fred}Unexpected and uncatched error.${freset}" ;;
+  esac
+  ! [ "${1}" = "0" ] && exit "${1}"
+}
 
+# Update the script if neccessary
+wget ${NODEBUG} --no-cache "${REPOSITORY_URL}${REPO_BRANCH}/mister-restore.sh" -O /tmp/mister-restore.sh
+check4error "${?}"
+cmp -s /tmp/mister-restore.sh /media/fat/Scripts/mister-restore.sh
+if [ "${?}" -gt "0" ] && [ -s /tmp/mister-restore.sh ]; then
+    echo -e "${fyellow}Script Updated ${fmagenta}${PICNAME}${freset}"
+    mv -f /tmp/mister-restore.sh /media/fat/Scripts/mister-restore.sh
+    exec /media/fat/Scripts/mister-restore.sh
+    exit 255
+else
+    rm /tmp/mister-restore.sh
+fi
+
+# Check for INI file download if neccessary
+if [ -e /media/fat/Scripts/mister-backup.ini ]; then
+	. /media/fat/Scripts/mister-backup.ini
+else
+	wget ${NODEBUG} --no-cache "${REPOSITORY_URL}${REPO_BRANCH}/mister-backup.ini" -O /tmp/mister-backup.ini
+	check4error "${?}"
+	mv /tmp/mister-backup.ini /media/fat/Scripts/mister-backup.ini
+	. /media/fat/Scripts/mister-backup.ini
+	echo -e "${fyellow}Missing mister-backup.ini installed with default backup location of: ${BACKUP_DESTINATION}${fmagenta}${PICNAME}${freset}"
+	exit 0
+fi
+
+# Run restore
 if [ -z "$BACKUP_DESTINATION" ]; then 
 	read -p "Restore MiSTer from: ${BACKUP_DESTINATION}? [y/N] " answer
 	if [[ $answer =~ ^[Yy]$ ]]; then

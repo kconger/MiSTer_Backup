@@ -45,8 +45,6 @@ check4error() {
   ! [ "${1}" = "0" ] && exit "${1}"
 }
 
-. /media/fat/Scripts/mister-backup.ini
-
 # Update the script if neccessary
 wget ${NODEBUG} --no-cache "${REPOSITORY_URL}${REPO_BRANCH}/mister-backup.sh" -O /tmp/mister-backup.sh
 check4error "${?}"
