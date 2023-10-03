@@ -74,13 +74,14 @@ fi
 if [ -z "$BACKUP_DESTINATION" ]; then 
 	echo -e "${fred}BACKUP_DESTINATION not set in mister-backup.ini${freset}"
 else
-	read -p "Backup MiSTer to: ${BACKUP_DESTINATION}? [y/N] " answer
-	if [[ $answer =~ ^[Yy]$ ]]; then
-		rsync -avh --delete --progress /media/fat $BACKUP_DESTINATION
-		echo -e "${fgreen}MiSTer SD backed up to: ${BACKUP_DESTINATION}${freset}";
+	read -n1 -p "Backup MiSTer to: ${BACKUP_DESTINATION}? [Y/n] " answer
+	if [[ $answer =~ ^[Nn]$ ]]; then
+		echo -e "\n${fred}Backup Canceled${freset}"
+	elif [[ $answer == $'\e' ]]; then
+		echo -e "\n${fred}Backup Canceled${freset}"
 	else
-	  	echo -e "${fred}Backup Canceled${freset}"
+		rsync -avh --delete --progress /media/fat $BACKUP_DESTINATION
+		echo -e "\n${fgreen}MiSTer SD backed up to: ${BACKUP_DESTINATION}${freset}";
 	fi
 fi
-
 exit 0
