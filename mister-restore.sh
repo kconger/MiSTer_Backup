@@ -76,6 +76,7 @@ if [ -z "$BACKUP_DESTINATION" ]; then
 else
 	read -p "Restore MiSTer from: ${BACKUP_DESTINATION}? [y/N] " answer
 	if [[ $answer =~ ^[Yy]$ ]]; then
+        echo -e "\n"
 		rsync -avh --delete --progress "${BACKUP_DESTINATION}/fat/" /media/fat/
 		echo -e "${fgreen}MiSTer SD restored from: ${BACKUP_DESTINATION}${freset}";
 	else
