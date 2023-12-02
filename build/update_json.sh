@@ -3,6 +3,8 @@
 
 BACKUP_SCRIPT_MD5=$(md5sum ../mister-backup.sh | awk '{print $1}')
 BACKUP_SCRIPT_SIZE=$(ls -o ../mister-backup.sh | awk '{print $4}')
+CLONE_SCRIPT_MD5=$(md5sum ../mister-clone.sh | awk '{print $1}')
+CLONE_SCRIPT_SIZE=$(ls -o ../mister-clone.sh | awk '{print $4}')
 RESTORE_SCRIPT_MD5=$(md5sum ../mister-restore.sh | awk '{print $1}')
 RESTORE_SCRIPT_SIZE=$(ls -o ../mister-restore.sh | awk '{print $4}')
 DATE=$(gdate +%s)
@@ -11,5 +13,7 @@ gsed -i 's/"hash": "XXX"/"hash": "'${BACKUP_SCRIPT_MD5}'"/' mister-backupdb.json
 gsed -i 's/"size": XXX/"size": '${BACKUP_SCRIPT_SIZE}'/' mister-backupdb.json
 gsed -i 's/"hash": "YYY"/"hash": "'${RESTORE_SCRIPT_MD5}'"/' mister-backupdb.json
 gsed -i 's/"size": YYY/"size": '${RESTORE_SCRIPT_SIZE}'/' mister-backupdb.json
+gsed -i 's/"hash": "ZZZ"/"hash": "'${CLONE_SCRIPT_MD5}'"/' mister-backupdb.json
+gsed -i 's/"size": ZZZ/"size": '${CLONE_SCRIPT_SIZE}'/' mister-backupdb.json
 gsed -i 's/"timestamp": XXX/"timestamp": '${DATE}'/' mister-backupdb.json
 mv mister-backupdb.json ../

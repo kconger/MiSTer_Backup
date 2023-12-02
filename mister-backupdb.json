@@ -6,19 +6,24 @@
     "default_options": {},
     "files": {
 	"Scripts/mister-backup.sh": {
-	    "hash": "19fc1bdbb46fdb1470ae27ccda5506d6",
-	    "size": 3321,
+	    "hash": "6dfd2e81dec93b18c41debdebfa6450d",
+	    "size": 3428,
 	    "url": "https://raw.githubusercontent.com/kconger/MiSTer_Backup/master/mister-backup.sh"
 	},
+	"Scripts/mister-clone.sh": {
+	    "hash": "9a6321aeec8cdf9640f9695e645a5cb5",
+	    "size": 3461,
+	    "url": "https://raw.githubusercontent.com/kconger/MiSTer_Backup/master/mister-clone.sh"
+	},
 	"Scripts/mister-restore.sh": {
-	    "hash": "5a02f842a5dabf56b4b394c746ef819a",
-	    "size": 3352,
+	    "hash": "f957241a9a4d2662379221591bb77779",
+	    "size": 3373,
 	    "url": "https://raw.githubusercontent.com/kconger/MiSTer_Backup/master/mister-restore.sh"
 	}
     },
     "folders": {
 	"Scripts": {}
     },
-    "timestamp": 1694230367,
+    "timestamp": 1701541247,
     "zips": {}
 }
