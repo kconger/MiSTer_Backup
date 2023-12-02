@@ -11,8 +11,8 @@
 	    "url": "https://raw.githubusercontent.com/kconger/MiSTer_Backup/master/mister-backup.sh"
 	},
 	"Scripts/mister-clone.sh": {
-	    "hash": "9a6321aeec8cdf9640f9695e645a5cb5",
-	    "size": 3461,
+	    "hash": "f2ba43c8667c2f5ffa3732924bc01b8f",
+	    "size": 3500,
 	    "url": "https://raw.githubusercontent.com/kconger/MiSTer_Backup/master/mister-clone.sh"
 	},
 	"Scripts/mister-restore.sh": {
@@ -24,6 +24,6 @@
     "folders": {
 	"Scripts": {}
     },
-    "timestamp": 1701541247,
+    "timestamp": 1701542050,
     "zips": {}
 }

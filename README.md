@@ -36,7 +36,7 @@ mister-backup.sh
 
 Restore
 -------
-On your MiSTer run the following command to restore your backup.
+On your MiSTer run the following command to restore your /media/fat/ backup.
 ```
 mister-restore.sh
 ```

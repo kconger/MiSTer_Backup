@@ -70,11 +70,11 @@ else
 	exit 0
 fi
 
-# Run backup
+# Run clone
 if [ -z "$BACKUP_DESTINATION" ]; then 
 	echo -e "${fred}BACKUP_DESTINATION not set in mister-backup.ini${freset}"
 else
-	read -n1 -p "Clone MiSTer SD to: ${BACKUP_DESTINATION}? [Y/n] " answer
+	read -n1 -p "Clone MiSTer SD to: ${BACKUP_DESTINATION}MiSTer-sd-$today.img? [Y/n] " answer
 	if [[ $answer =~ ^[Nn]$ ]]; then
 		echo -e "\n${fred}Clone Canceled${freset}"
 	elif [[ $answer == $'\e' ]]; then
@@ -82,7 +82,7 @@ else
 	else
         	echo -e "\n"
 		dd if=/dev/mmcblk0 of=$BACKUP_DESTINATION/MiSTer-sd-$today.img bs=1M status=progress
-		echo -e "\n${fgreen}MiSTer SD cloned to: ${BACKUP_DESTINATION}${freset}";
+		echo -e "\n${fgreen}MiSTer SD cloned to: ${BACKUP_DESTINATION}MiSTer-sd-$today.img${freset}";
 	fi
 fi
 exit 0
