@@ -10,6 +10,11 @@
 	    "size": XXX,
 	    "url": "https://raw.githubusercontent.com/kconger/MiSTer_Backup/master/mister-backup.sh"
 	},
+	"Scripts/mister-clone.sh": {
+	    "hash": "ZZZ",
+	    "size": ZZZ,
+	    "url": "https://raw.githubusercontent.com/kconger/MiSTer_Backup/master/mister-clone.sh"
+	},
 	"Scripts/mister-restore.sh": {
 	    "hash": "YYY",
 	    "size": YYY,
