@@ -8,7 +8,7 @@ Add the following entry to your 'downloader.ini' then run 'update_all.sh'
 db_url = https://raw.githubusercontent.com/kconger/MiSTer_Backup/master/mister-backupdb.json
 ```
 
-Run mister-backup.sh to create the initial INI file.
+Run mister-backup.sh on mister-clone.sh to create the initial INI file.
 ```
 mister-backup.sh
 ```
