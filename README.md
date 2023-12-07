@@ -27,14 +27,14 @@ On your MiSTer run the following command to create a clone of your MiSTer SD car
 mister-clone.sh
 ```
 
-Backup
+Backup /media/fat/
 -------
 On your MiSTer run the following command to create a backup of your /media/fat/ folder. The first one may take a bit depending on what is on your SD card, later runs will be incremental.
 ```
 mister-backup.sh
 ```
 
-Restore
+Restore /media/fat/
 -------
 On your MiSTer run the following command to restore your /media/fat/ backup.
 ```
