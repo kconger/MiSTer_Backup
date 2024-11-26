@@ -81,7 +81,7 @@ else
 		echo -e "\n${fred}Backup Canceled${freset}"
 	else
         echo -e "\n"
-		rsync -avh --delete --progress /media/fat $BACKUP_DESTINATION
+		rsync -avh --delete --links --progress /media/fat $BACKUP_DESTINATION
 		echo -e "\n${fgreen}MiSTer SD backed up to: ${BACKUP_DESTINATION}${freset}";
 	fi
 fi
